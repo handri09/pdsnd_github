@@ -11,13 +11,6 @@ months = ["january", "february", "march", "april", "may", "june"]
 
 def get_filters():
     
-    """Asks user to specify a city, month, and day to analyze.
-    city = 
-    Returns:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
-    """
     print('Hello! Let\'s explore some US bikeshare data!\n')
     # get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city = input("Please enter a CITY name: Chicago, New York, or Washington\n").lower()
@@ -27,6 +20,7 @@ def get_filters():
     if fl == "both":
         month = input('Which month? January, February, March, April, May or June?\n').lower()
         # get user input for day of week (all, monday, tuesday, ... sunday)
+
         day = input("Which day? Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, or Saturday\n").title()
     elif fl == "month":
         month = input('Which month? January, February, March, April, May or June\n')
@@ -58,19 +52,17 @@ def load_data(city, month, day, fl):
     df['Start Time'] = pd.to_datetime(df['Start Time'])
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.strftime("%A")
+
     # Filter
     if month != None:
         # df ==> filter by month
         month_index = months.index(month) + 1
+
         #print("month int: {}".format(month))
         df = df[df["month"] == month_index]
-        #count_month = df[df["month"] == month_index]["month"].count()
-        #print("month: {}, count: {}, Filter: {}".format(month, count_month, fl.title()))
 
     if day != None: 
         df = df[df['day_of_week'] == day.title()]
-		#count_day = df[df["day_of_week"] == day.title()]["day_of_week"].count()
-		#print("Day: {}, count: {}, Filter: {}".format(day, count_day, fl.title()))
     return df
 
 def time_stats(df):
@@ -89,7 +81,6 @@ def time_stats(df):
     com_day = df['day_of_week'].mode()[0]
     count_com_day = df[df["day_of_week"] == com_day.title()]["day_of_week"].count()
     print("Common Day: {}, Count: {}, Filter: {}".format(com_day,count_com_day,fl))
-
 
     # display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
@@ -110,6 +101,7 @@ def station_stats(df):
     com_start_station = df['Start Station'].mode()[0]
     count_com_start_stat = df[df['Start Station']==com_start_station]['Start Station'].count()
     print("Common Start Station: {}, Count: {}, Filter: {}".format(com_start_station,count_com_start_stat,fl))
+    
     # display most commonly used end station
     com_end_station = df['End Station'].mode()[0]
     count_com_end_stat = df[df['End Station'] == com_end_station]['End Station'].count()
