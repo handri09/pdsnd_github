@@ -1,15 +1,18 @@
 ### Date created
-Include the date you created this project and README file.
+Tuesday 15th December 2020
 
 ### Project Title
-Replace the Project Title
+Bikeshare
 
 ### Description
-Describe what your project is about and what it does
+This python program analyzes the bike rental in three (3) differents city: New York city, Chicago, Washington
+
+The analyses is filtered by 3 options: Day, Month, Both
 
 ### Files used
-Include the files used
+Program: bikeshare.py 
+Data: New_York_City.csv, Chicago.csv, Washington.csv
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Sources : https://udacity.github.io/git-styleguide/
+GitHub  : https://github.com/handri09/pdsnd_github
