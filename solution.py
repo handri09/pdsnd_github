@@ -4,9 +4,12 @@ import numpy as np
 
 # Dictionary for Country Name and Data Filtering
 CITY_DATA = {'chicago': 'chicago.csv',
+             'c': 'chicago.csv',
 			 'new york': 'new_york_city.csv',
 			 'new york city': 'new_york_city.csv',
-			 'washington': 'washington.csv'}
+             'n': 'new_york_city.csv',
+			 'washington': 'washington.csv',
+             'w': 'washington.csv'}
 months = ["january", "february", "march", "april", "may", "june"]
 
 def get_filters():
